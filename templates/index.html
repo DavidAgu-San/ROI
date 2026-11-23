@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer ROI Profiles</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; color: #172033; }
+    h1 { margin-bottom: 1rem; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #d7dde8; padding: 0.65rem; text-align: left; }
+    th { background: #edf2f7; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Customer ROI Profiles</h1>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Total Spend</th>
+            <th>Cluster</th>
+            <th>Payment Reliability</th>
+            <th>Standpoint</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for profile in profiles %}
+          <tr>
+            <td>{{ profile.customer_id }}</td>
+            <td>{{ "%.2f"|format(profile.total_spend) }}</td>
+            <td>{{ profile.cluster }}</td>
+            <td>{{ profile.payment_reliability }}</td>
+            <td>{{ profile.standpoint }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
